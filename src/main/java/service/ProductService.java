@@ -18,8 +18,9 @@ public class ProductService {
         products.put(3, new Product(3, "ip7", 40, 77,"purple"));
         products.put(4, new Product(4, "ip8", 50, 88,"yellow"));
         products.put(5, new Product(5, "ip9", 60, 99,"azure"));
-        products.put(6, new Product(6, "ip10", 70, 1010,"white"));
+//        products.put(6, new Product(6, "ip10", 70, 1010,"white"));
     }
+
 
     public List findAll(){
         return new ArrayList<>(products.values());
