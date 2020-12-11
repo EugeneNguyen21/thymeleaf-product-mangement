@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Products</h3>
+
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <p>
+            <a class="btn btn-primary" th:href="@{/product/create}">
+                Add new product
+            </a>
+        </p>
+    </div>
+    <div class="row ">
+        <table class="table table-hover table-bordered align-center">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Color</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="row,rowStat : ${productList}">
+                <td th:text="${row.getId()}"></td>
+                <td th:text="${row.getName()}"></td>
+                <td th:text="${row.getPrice()}"></td>
+                <td th:text="${row.getQuantity()}"></td>
+                <td th:text="${row.getColor()}"></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/product/{id}/edit(id=${row.getId()})}">edit</a>
+                    <a class="btn btn-danger" th:href="@{/product/{id}/delete(id=${row.getId()})}">delete</a>
+                    <a class="btn btn-success" th:href="@{/product/{id}/view(id=${row.getId()})}">view</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
